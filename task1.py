@@ -53,41 +53,6 @@ def main():
     print(find_coins_greedy(amount, bank))
     print(f"find_min_coins: {m2}")
     print(find_min_coins(amount, bank))
-
-    time_data = []
-    for i in range(1000, 20000, 100):
-        time_data.append(
-            (
-                i,
-                timeit.timeit(lambda: find_coins_greedy(amount, bank), number=20),
-                timeit.timeit(lambda: find_min_coins(amount, bank), number=20),
-            )
-        )
-
-
-    x = [x[0] for x in time_data]
-    y1 = [x[1] for x in time_data]
-    y2 = [x[2] for x in time_data]
-
-    # Create subplots stacked vertically
-    fig, (ax1, ax2) = plt.subplots(2, 1)
-
-    # Plot data on the first subplot
-    plt.sca(ax1)
-    plt.plot(x, y1, label="Greedy")
-    plt.xlabel("Sum")
-    plt.ylabel("Time")
-    plt.legend()
-    plt.grid()
-
-    # Plot data on the second subplot
-    plt.sca(ax2)
-    plt.plot(x, y2, label="Dynamic")
-    plt.legend()
-    plt.xlabel("Sum")
-    plt.ylabel("Time")
-    plt.grid()
-    plt.show()
     
 if __name__ == "__main__":
     main()
